@@ -1,0 +1,32 @@
+# Outra forma de definir as propriedades sem ser pelo .properties, mas sim pelo .yml
+spring:
+    application:
+        name: usuarios-api
+    jpa:
+        show-sql: false
+        hibernate:
+            ddl-auto: none
+    # Propriedades de conexão com o banco de dados
+    datasource: 
+        url: jdbc:mysql://localhost:3306/eco_produtos
+        username: root
+        password: lazevedo
+        driver-class-name: com.mysql.cj.jdbc.Driver
+    security:
+        secret-key: treina2024
+        token-issuer: usuarios-api
+    mail:
+        sender: mailtrap.io@example.com
+        host: sandbox.smtp.mailtrap.io
+        port: 2525
+        username: 00cc040681d925
+        passsword: b791d9013356c2
+        properties:
+            smtp:
+                auth: true
+                starttls:
+                    enable: true
+
+# Porta onde é executada a aplicação
+server: 
+    port: 8081
