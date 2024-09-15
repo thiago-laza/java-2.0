@@ -50,7 +50,7 @@ public class Produto {
         dto.setNome(nome);
         dto.setDescricao(descricao);
         dto.setPreco(preco);
-        dto.setCategoria(categoria.getNome());
+        dto.setCategoria(categoria);
 
         return dto;
     }
