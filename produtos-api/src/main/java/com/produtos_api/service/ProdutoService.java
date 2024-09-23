@@ -84,6 +84,9 @@ public class ProdutoService {
 
         return "Produto deletado com sucesso.";
     }
+
+    //DEMAIS METODOS
+
     //findByCodigo -> Optional
     public ProdutoDTO buscaProdutoPeloCodigo(String codigo){
         Optional<Produto> pOptional = produtoRepository.findByCodigo(codigo);

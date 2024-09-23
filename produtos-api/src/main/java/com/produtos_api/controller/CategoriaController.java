@@ -23,44 +23,43 @@ import jakarta.websocket.server.PathParam;
 
 
 @RestController
-@RequestMapping("/categorias")
+@RequestMapping("/categoria")
 public class CategoriaController {
 
     @Autowired
     public CategoriaService categoriaService;
 
-    //PostMapping
+    //CRUD
+
     @PostMapping
-    public ResponseEntity<CategoriaDTO> cadastrarCategoria(@RequestBody CategoriaDTO categoriaDTO){
-        return ResponseEntity.status(HttpStatus.CREATED).body(categoriaService.salvarCategoria(categoriaDTO));
+    public ResponseEntity<Categoria> cadastrarCategoria(@RequestBody Categoria categoria){
+        return ResponseEntity.status(HttpStatus.CREATED).body(categoriaService.salvarCategoria(categoria));
     }
 
-    //GetMapping
     @GetMapping
     public ResponseEntity<List<CategoriaDTO>> listaCategorias(){
         return ResponseEntity.status(HttpStatus.OK).body(categoriaService.listarCategorias());
     }
 
-    //GetMapping("/{id}")
     @GetMapping("/{id}")
     public ResponseEntity<CategoriaDTO> exibirCategoria(@PathVariable("id") Long id){
         return ResponseEntity.status(HttpStatus.OK).body(categoriaService.buscaCategoriaPeloId(id));
     }
-    //GetMapping("/nome")
-    @GetMapping("/nome")
-    public ResponseEntity<List<CategoriaDTO>> obterProdutoPeloNome(@PathParam("nome") String nome){
-        return ResponseEntity.status(HttpStatus.OK).body(categoriaService.buscaCategoriaPeloNome(nome));
-    }
-
-    //PutMapping("/{id}"
+    
     @PutMapping("/{id}")
     public ResponseEntity<CategoriaDTO> atualizarDadosDaCategoria(@PathVariable("id") Long id, @RequestBody Categoria categoria){
         return ResponseEntity.status(HttpStatus.OK).body(categoriaService.atualizaCategoria(id, categoria));
     }
 
-    //DeleteMapping("/{id}")
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deletaCategoria(@PathVariable("id") Long id){
         return ResponseEntity.status(HttpStatus.OK).body(categoriaService.excluirCategoria(id));
+    }
+
+    //OUTROS METODOS
+
+    @GetMapping("/nome")
+    public ResponseEntity<List<CategoriaDTO>> obterProdutoPeloNome(@PathParam("nome") String nome){
+        return ResponseEntity.status(HttpStatus.OK).body(categoriaService.buscaCategoriaPeloNome(nome));
     }
 }

@@ -24,13 +24,9 @@ public class CategoriaService {
     ProdutoRepository produtoRepository;
 
     //salvar categoria
-    public CategoriaDTO salvarCategoria(CategoriaDTO categoriaDTO){
-        // Converte o CategoriaDTO diretamente para Categoria
-        Categoria categoria = categoriaDTO.converteDtoParaCategoria();
-        // Salva o Categoria no banco de dados
-        Categoria categoriaSalva = categoriaRepository.save(categoria);
-        // Retorna o Categoria salva convertido novamente para DTO
-        return categoriaSalva.converteCategoriaParaDTO();
+    public Categoria salvarCategoria(Categoria categoria){
+        return categoriaRepository.save(categoria);
+        
     }
     //buscar todas as categorias - List
     public List<CategoriaDTO> listarCategorias(){
@@ -87,6 +83,9 @@ public class CategoriaService {
 
         return null;
     }
+
+    //Demais metodos
+
     //buscar categoria pelo nome
     public List<CategoriaDTO> buscaCategoriaPeloNome(String nome){
         List<Categoria> categoriaList = categoriaRepository.findByNomeContainsIgnoreCase(nome);

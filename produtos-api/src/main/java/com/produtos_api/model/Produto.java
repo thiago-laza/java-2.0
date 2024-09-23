@@ -2,7 +2,7 @@ package com.produtos_api.model;
 
 import com.produtos_api.dto.ProdutoDTO;
 
-//import com.produtos_api.dto.ProdutoDTO;
+
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

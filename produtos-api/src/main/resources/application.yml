@@ -5,7 +5,7 @@ spring:
     jpa:
         show-sql: false
         hibernate:
-            ddl-auto: none
+            ddl-auto: update
     # Propriedades de conexão com o banco de dados
     datasource: 
         url: jdbc:mysql://localhost:3306/eco_produtos

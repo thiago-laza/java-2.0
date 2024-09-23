@@ -30,6 +30,8 @@ public class ProdutoController {
      @Autowired
     private ProdutoService produtoService;
 
+    //CRUD
+
     @PostMapping
     public ResponseEntity<ProdutoDTO> cadastrarProduto(@RequestBody ProdutoDTO produtoDTO){
         return ResponseEntity.status(HttpStatus.CREATED).body(produtoService.salvarProduto(produtoDTO));
@@ -45,26 +47,6 @@ public class ProdutoController {
         return ResponseEntity.status(HttpStatus.OK).body(produtoService.buscaProdutoPeloId(id));
     }
 
-    @GetMapping("/codigo")
-    public ResponseEntity<ProdutoDTO> obterProdutoPeloCodigo(@PathParam("codigo") String codigo){
-        return ResponseEntity.status(HttpStatus.OK).body(produtoService.buscaProdutoPeloCodigo(codigo));
-    }
-
-    @GetMapping("/nome")
-    public ResponseEntity<List<ProdutoDTO>> obterProdutoPeloNome(@PathParam("nome") String nome){
-        return ResponseEntity.status(HttpStatus.OK).body(produtoService.buscaProdutoPeloNome(nome));
-    }
-
-    @GetMapping("/categoria")
-    public ResponseEntity<List<ProdutoDTO>> obterProdutoPelaCategoria(@RequestBody Categoria categoria){
-        return ResponseEntity.status(HttpStatus.OK).body(produtoService.buscaProdutoPelaCategoria(categoria));
-    }
-
-    @GetMapping("/precoInferior/precoSuperior")
-    public ResponseEntity<List<ProdutoDTO>> obterProdutoPeloPreco(@PathParam("precoInferior") Double menorPreco, @PathParam("precoSuperior") Double maiorPreco){
-        return ResponseEntity.status(HttpStatus.OK).body(produtoService.buscaProdutoPeloPreco(menorPreco, maiorPreco));
-    }
-
     @PutMapping("/{id}")
     public ResponseEntity<ProdutoDTO> atualizarDadosDoProduto(@PathVariable("id") Long id, Produto produto){
         return ResponseEntity.status(HttpStatus.OK).body(produtoService.atualizaProduto(id, produto));
@@ -75,7 +57,36 @@ public class ProdutoController {
         return ResponseEntity.status(HttpStatus.OK).body(produtoService.deletaCategoria(id));
     }
 
+    //OUTROS METODOS
 
+    @GetMapping("/codigo")
+    public ResponseEntity<ProdutoDTO> obterProdutoPeloCodigo(@PathParam("codigo") String codigo){
+        return ResponseEntity.status(HttpStatus.OK).body(produtoService.buscaProdutoPeloCodigo(codigo));
+    }
+
+    @GetMapping("/nome")
+    public ResponseEntity<List<ProdutoDTO>> obterProdutoPeloNome(@PathParam("nome") String nome){
+        return ResponseEntity.status(HttpStatus.OK).body(produtoService.buscaProdutoPeloNome(nome));
+    }
+
+    @GetMapping("descricao")
+    public ResponseEntity<List<ProdutoDTO>> obterProdutoPelaDescricao(@PathParam("descricao") String descricao){
+        return ResponseEntity.status(HttpStatus.OK).body(produtoService.buscaProdutoPelaDescricao(descricao));
+    }
+
+    @GetMapping("/precoInferior/precoSuperior")
+    public ResponseEntity<List<ProdutoDTO>> obterProdutoPeloPreco(@PathParam("precoInferior") Double menorPreco, @PathParam("precoSuperior") Double maiorPreco){
+        return ResponseEntity.status(HttpStatus.OK).body(produtoService.buscaProdutoPeloPreco(menorPreco, maiorPreco));
+    }
+
+    @GetMapping("/categoria")
+    public ResponseEntity<List<ProdutoDTO>> obterProdutoPelaCategoria(@RequestBody Categoria categoria){
+        return ResponseEntity.status(HttpStatus.OK).body(produtoService.buscaProdutoPelaCategoria(categoria));
+    }
+
+    
+
+    
 
     
 
