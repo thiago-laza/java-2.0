@@ -3,23 +3,12 @@ package com.pedidos_api.model;
 import java.time.LocalDate;
 import java.util.List;
 
-
-
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.pedidos_api.dto.PedidoDTO;
-
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 
 @Data
 @AllArgsConstructor
@@ -48,17 +37,18 @@ public class Pedido {
         inverseJoinColumns = @JoinColumn(name = "item_id")
     )
     private List<Item> itens;
-    
 
-    public PedidoDTO convertePedidoParaDto(){
+    public PedidoDTO convertePedidoParaDto() {
         PedidoDTO dto = new PedidoDTO();
-
         dto.setEmailCliente(emailCliente);
         dto.setTotal(total);
         dto.setData(data);
         dto.setItem(itens);
+        
+              
+        
 
         return dto;
     }
-   
 }
+

@@ -10,6 +10,8 @@ import org.springframework.stereotype.Repository;
 import com.pedidos_api.model.Item;
 import com.pedidos_api.model.Pedido;
 
+
+
 @Repository
 public interface PedidoRepository extends JpaRepository<Pedido,Long>{
 

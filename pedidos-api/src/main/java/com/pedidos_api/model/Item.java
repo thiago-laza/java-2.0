@@ -1,5 +1,7 @@
 package com.pedidos_api.model;
 
+
+
 import com.pedidos_api.dto.ItemDTO;
 
 import jakarta.persistence.Column;
@@ -30,6 +32,7 @@ public class Item {
     @Column(nullable = false)
     private Double preco;
 
+    
 
     public ItemDTO converteItemParaDto(){
         ItemDTO dto = new ItemDTO();

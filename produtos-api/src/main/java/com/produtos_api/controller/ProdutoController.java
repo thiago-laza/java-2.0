@@ -85,7 +85,19 @@ public class ProdutoController {
     }
 
     
-
+    //Json:
+    /*
+     {
+        "codigo": "xxxxxxx",
+        "nome": "xxxxxx",
+        "descricao": "xxxxxx",
+        "preco": xxxxx,
+        "categoria": {
+            "id": xxxxx(gerado na categoria),
+            "nome": "---"
+            }
+    }
+    */
     
 
     

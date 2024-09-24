@@ -62,4 +62,12 @@ public class CategoriaController {
     public ResponseEntity<List<CategoriaDTO>> obterProdutoPeloNome(@PathParam("nome") String nome){
         return ResponseEntity.status(HttpStatus.OK).body(categoriaService.buscaCategoriaPeloNome(nome));
     }
+
+
+    //Json:
+    /*
+    {
+	    "nome": "xxxxx"
+    }
+     */
 }
